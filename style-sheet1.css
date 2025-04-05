@@ -65,5 +65,9 @@
       margin-top: 1rem;
       cursor: pointer;
   }
+  h3{
+    position: fixed;
+    bottom: 0;
+}
 
   
