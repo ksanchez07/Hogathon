@@ -1,31 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login Page</title>
   <link rel="stylesheet" href="style-sheet1.css">
-  
 </head>
-<h3>
-  <a href="OnlyYouFinder.html">OnlyYouFinder Page</a>
-  <a href="OnlyLeaks.html">OnlyLeaks Page</a>
-</h3>
 <body>
-  
 
-<div class="login-container">
+  <div class="login-container">
     <div class="onlyYou">
-    <h2>OnlyYou</h2>
+      <h2>OnlyYou</h2>
     </div>
-  <form action="/login" method="POST">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-    <button type="submit" id="register_button">Register</button>
-  </form>
-</div>
+
+    
+    <form id="loginForm">
+      <input type="text" id="name" name="username" placeholder="Username" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <button type="submit" id="login_button">Login</button>
+      <button type="submit" id="register_button">Register</button>
+    </form>
+  </div>
+
+  <script>
+    
+
+    
+    let csvData = [
+    ["kareem.sanchez06@gmail.com", "Password"],
+    ["kareem.sanchez07@gmail.com", "Notpassword"]
+    //add new when register
+    ];
+    
+    
+
+
+    // Form submission handler for login
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+      const name = document.getElementById('name').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      for (let row of csvData) {
+        if (row[0] === name && row[1] === password) {
+          window.location.href = 'OnlyYouFinder.html'; // Redirect to the new page
+          return;
+        }
+      }
+
+      alert('User not found');
+    });
+  </script>
 
 </body>
 </html>
